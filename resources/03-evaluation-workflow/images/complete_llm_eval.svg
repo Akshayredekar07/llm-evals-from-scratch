@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 950" width="100%" height="100%">
+  <defs>
+    <!-- Arrow Markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8e8e93" />
+    </marker>
+    <marker id="arrow-dashed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8e8e93" />
+    </marker>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap');
+
+    .bg { fill: #121212; }
+    .box { rx: 12px; ry: 12px; stroke-width: 1.5; }
+    
+    .text-title { 
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif; 
+      font-size: 18px; 
+      font-weight: 600; 
+      fill: #ffffff; 
+      text-anchor: middle; 
+      dominant-baseline: middle; 
+      letter-spacing: -0.01em;
+    }
+    .text-sub { 
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif; 
+      font-size: 14px; 
+      font-weight: 400; 
+      fill: #6ee7b7; 
+      text-anchor: middle; 
+      dominant-baseline: middle; 
+    }
+    .label { 
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif; 
+      font-size: 14px; 
+      font-weight: 500; 
+      fill: #cccccc; 
+      text-anchor: middle; 
+      letter-spacing: -0.01em;
+    }
+    
+    .connector { fill: none; stroke: #666666; stroke-width: 2; marker-end: url(#arrow); }
+    .connector-dashed { fill: none; stroke: #8e8e93; stroke-width: 2; stroke-dasharray: 6,6; marker-end: url(#arrow-dashed); }
+    
+    /* Box Colors */
+    .blue-box { fill: #104373; stroke: #1e5a96; }
+    .brown-box { fill: #732a10; stroke: #943a18; }
+    .teal-box { fill: #0a4f3c; stroke: #116850; }
+    .ochre-box { fill: #6e4100; stroke: #8f5500; }
+    .green-box { fill: #204e11; stroke: #2d6b19; }
+    .purple-box { fill: #3f317c; stroke: #5443a0; }
+    .red-box { fill: #701a1e; stroke: #912429; }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg" width="100%" height="100%" />
+
+  <!-- CONNECTOR LINES & LABELS -->
+
+  <!-- Vertical Main Flow Arrows -->
+  <path class="connector" d="M 250, 120 L 250, 150" />
+  <path class="connector" d="M 250, 240 L 250, 270" />
+  <path class="connector" d="M 250, 360 L 250, 390" />
+  <path class="connector" d="M 250, 480 L 250, 510" />
+  <path class="connector" d="M 250, 620 L 250, 650" />
+  <path class="connector" d="M 250, 740 L 250, 770" />
+
+  <!-- Deploy & Monitor -> Production Failures -->
+  <path class="connector" d="M 400, 815 L 470, 815" />
+
+  <!-- Analyze the results -> Improve the model -->
+  <path class="connector" d="M 400, 695 L 430, 695 L 430, 585 L 470, 585" />
+
+  <!-- Improve the model -> Run the model (Loop with label 'iterate') -->
+  <path class="connector" d="M 590, 530 L 590, 435 L 400, 435" />
+  <text x="500" y="420" class="label">iterate</text>
+
+  <!-- Production failures -> Build a dataset (Dashed loop) -->
+  <path class="connector-dashed" d="M 710, 815 L 730, 815 L 730, 315 L 400, 315" />
+  <text x="565" y="300" class="label">failures added back to dataset</text>
+
+  <!-- NODES / BOXES -->
+
+  <!-- 1. Define task and target -->
+  <g transform="translate(100, 30)">
+    <rect class="box blue-box" width="300" height="90" />
+    <text x="150" y="45" class="text-title">Define task and target</text>
+  </g>
+
+  <!-- 2. Define success criteria -->
+  <g transform="translate(100, 150)">
+    <rect class="box blue-box" width="300" height="90" />
+    <text x="150" y="45" class="text-title">Define success criteria</text>
+  </g>
+
+  <!-- 3. Build a dataset -->
+  <g transform="translate(100, 270)">
+    <rect class="box brown-box" width="300" height="90" />
+    <text x="150" y="45" class="text-title">Build a dataset</text>
+  </g>
+
+  <!-- 4. Run the model -->
+  <g transform="translate(100, 390)">
+    <rect class="box teal-box" width="300" height="90" />
+    <text x="150" y="45" class="text-title">Run the model</text>
+  </g>
+
+  <!-- 5. Evaluate the results -->
+  <g transform="translate(100, 510)">
+    <rect class="box teal-box" width="300" height="110" />
+    <text x="150" y="42" class="text-title">Evaluate the results</text>
+    <text x="150" y="75" class="text-sub">Python script, accuracy 80%</text>
+  </g>
+
+  <!-- 6. Analyze the results -->
+  <g transform="translate(100, 650)">
+    <rect class="box ochre-box" width="300" height="90" />
+    <text x="150" y="45" class="text-title">Analyze the results</text>
+  </g>
+
+  <!-- 7. Deploy and monitor -->
+  <g transform="translate(100, 770)">
+    <rect class="box green-box" width="300" height="90" />
+    <text x="150" y="45" class="text-title">Deploy and monitor</text>
+  </g>
+
+  <!-- Side Box 1: Improve the model -->
+  <g transform="translate(470, 530)">
+    <rect class="box purple-box" width="240" height="110" />
+    <text x="120" y="55" class="text-title">Improve the model</text>
+  </g>
+
+  <!-- Side Box 2: Production failures -->
+  <g transform="translate(470, 770)">
+    <rect class="box red-box" width="240" height="90" />
+    <text x="120" y="45" class="text-title">Production failures</text>
+  </g>
+</svg>
