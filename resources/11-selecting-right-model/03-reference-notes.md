@@ -89,7 +89,7 @@ least 500 legal balls?
 
 ---
 
-## **Cost Calculation - Full Worked Example**
+## **Cost Calculation**
 
 **Step 1: Measure token usage per query**
 
